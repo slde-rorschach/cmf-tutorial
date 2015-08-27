@@ -6,8 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    public function pageAction($contentDocument)
     {
-        return $this->render('CKBasicCmsBundle:Default:index.html.twig', array('name' => $name));
+        $documentManager = $this->get('doctrine_phpcr')->getManager();
+        $posts = $documentManager->getRepository('CKBasicCmsBundle:Post')->findAll();
+
+        return $this->render('CKBasicCmsBundle:Default:page.html.twig', array(
+            'page' => $contentDocument,
+            'posts' => $posts
+        ));
     }
 }

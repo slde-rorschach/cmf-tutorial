@@ -102,6 +102,8 @@ cmf_routing:
             phpcr:
                 route_basepath: /cms/routes
                 use_sonata_admin: false
+        controllers_by_class:
+            CK\BasicCmsBundle\Document\Page: CK\BasicCmsBundle\Controller\DefaultController::pageAction
 
 cmf_routing_auto:
     persistence:
