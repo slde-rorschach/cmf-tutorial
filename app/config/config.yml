@@ -106,3 +106,10 @@ cmf_routing_auto:
     persistence:
         phpcr:
             enabled: true
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # Enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts: [admin]

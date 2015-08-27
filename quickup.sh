@@ -10,3 +10,7 @@ php app/console doctrine:phpcr:init:dbal
 php app/console doctrine:phpcr:repository:init
 
 php app/console doctrine:phpcr:fixtures:load -n
+
+php app/console assets:install --symlink web/
+
+#php app/console server:run
