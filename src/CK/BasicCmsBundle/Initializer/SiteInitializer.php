@@ -43,6 +43,7 @@ class SiteInitializer implements InitializerInterface
         $session = $registry->getConnection();
 
         NodeHelper::createPath($session, $this->basePath . '/articles');
+        NodeHelper::createPath($session, $this->basePath . '/events');
         NodeHelper::createPath($session, $this->basePath . '/pages');
         NodeHelper::createPath($session, $this->basePath . '/posts');
         NodeHelper::createPath($session, $this->basePath . '/routes');

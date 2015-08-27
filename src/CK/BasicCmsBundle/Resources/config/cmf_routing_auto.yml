@@ -13,3 +13,8 @@ CK\BasicCmsBundle\Document\Article:
     uri_schema: /article/{title}
     token_providers:
         title: [content_method, { method: getTitle }]
+
+CK\BasicCmsBundle\Document\Event:
+    uri_schema: /event/{title}
+    token_providers:
+        title: [content_method, { method: getTitle }]

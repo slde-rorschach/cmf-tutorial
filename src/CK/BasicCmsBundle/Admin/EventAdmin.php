@@ -9,7 +9,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\DoctrinePHPCRAdminBundle\Admin\Admin;
 
-class ArticleAdmin extends Admin
+class EventAdmin extends Admin
 {
     /**
      * {@inheritdoc}
@@ -36,7 +36,7 @@ class ArticleAdmin extends Admin
      */
     public function prePersist($object)
     {
-        $parent = $this->getModelManager()->find(null, '/cms/articles');
+        $parent = $this->getModelManager()->find(null, '/cms/events');
         $object->setParentDocument($parent);
     }
 

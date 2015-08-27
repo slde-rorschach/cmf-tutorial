@@ -105,6 +105,7 @@ cmf_routing:
         controllers_by_class:
             CK\BasicCmsBundle\Document\Page: CK\BasicCmsBundle\Controller\DefaultController::pageAction
             CK\BasicCmsBundle\Document\Article: CK\BasicCmsBundle\Controller\ArticleController::showAction
+            CK\BasicCmsBundle\Document\Event: CK\BasicCmsBundle\Controller\EventController::showAction
 
 cmf_routing_auto:
     persistence:
@@ -141,6 +142,8 @@ sonata_doctrine_phpcr_admin:
         CK\BasicCmsBundle\Document\Post:
             valid_children: []
         CK\BasicCmsBundle\Document\Article:
+            valid_children: [all]
+        CK\BasicCmsBundle\Document\Event:
             valid_children: [all]
         CK\BasicCmsBundle\Document\Site:
             valid_children:
