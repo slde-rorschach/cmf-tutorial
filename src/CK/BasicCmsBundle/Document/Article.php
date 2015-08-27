@@ -19,13 +19,39 @@ class Article implements RouteReferrersReadInterface, NodeInterface
     protected $children;
 
     /**
+     * @var \DateTime
+     * @PHPCR\Date
+     */
+    protected $date;
+
+    /**
+     * @PHPCR\PrePersist()
+     */
+    public function updateDate()
+    {
+        if (!$this->date) {
+            $this->date = new \DateTime();
+        }
+    }
+
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTime $date)
+    {
+        $this->date = $date;
+    }
+
+    /**
      * Get the name of the node
      *
      * Each child of a node must have a unique name
      *
      * @return string
      */
-    function getName()
+    public function getName()
     {
         return $this->title;
     }
@@ -35,7 +61,7 @@ class Article implements RouteReferrersReadInterface, NodeInterface
      *
      * @return \Traversable
      */
-    function getChildren()
+    public function getChildren()
     {
         return $this->children;
     }
@@ -45,7 +71,7 @@ class Article implements RouteReferrersReadInterface, NodeInterface
      *
      * @return array
      */
-    function getOptions()
+    public function getOptions()
     {
         return array(
             'label' => $this->title,

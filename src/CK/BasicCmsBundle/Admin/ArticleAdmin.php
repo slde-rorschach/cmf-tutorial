@@ -27,6 +27,7 @@ class ArticleAdmin extends Admin
         $form->with('form.group_general')
             ->add('title', 'text')
             ->add('content', 'textarea')
+            ->add('date', 'date')
             ->end();
     }
 
