@@ -2,6 +2,8 @@
 
 namespace CK\BasicCmsBundle\Admin;
 
+use Knp\Menu\ItemInterface as MenuItemInterface;
+use Sonata\AdminBundle\Admin\AdminInterface;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -51,5 +53,34 @@ class PageAdmin extends Admin
     public function getExportFormats()
     {
         return array();
+    }
+
+    /**
+     * DEPRECATED: Use configureTabMenu instead.
+     *
+     * @param MenuItemInterface $menu
+     * @param                   $action
+     * @param AdminInterface $childAdmin
+     *
+     * @return mixed
+     *
+     * @deprecated Use configureTabMenu instead
+     */
+    protected function configureSideMenu(MenuItemInterface $menu, $action, AdminInterface $childAdmin = null)
+    {
+        if ('edit' !== $action) {
+            return;
+        }
+
+        $page = $this->getSubject();
+
+        $menu->addChild('make-homepage', array(
+            'label' => 'Make Homepage',
+            'attributes' => array('class' => 'btn'),
+            'route' => 'make_homepage',
+            'routeParameters' => array(
+                'id' => $page->getId(),
+            ),
+        ));
     }
 }

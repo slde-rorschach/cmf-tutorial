@@ -1,0 +1,9 @@
+index:
+    path: /
+    defaults:  { _controller: CKBasicCmsBundle:Default:index }
+
+make_homepage:
+    path: /_cms/make_homepage/{id}
+    defaults:  { _controller: CKBasicCmsBundle:Default:makeHomepage }
+    requirements:
+        id:  .+
