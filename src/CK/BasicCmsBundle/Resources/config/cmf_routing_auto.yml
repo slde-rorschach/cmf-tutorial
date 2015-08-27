@@ -8,3 +8,8 @@ CK\BasicCmsBundle\Document\Post:
     token_providers:
         date: [content_datetime, { method: getDate }]
         title: [content_method, { method: getTitle }]
+
+CK\BasicCmsBundle\Document\Article:
+    uri_schema: /article/{title}
+    token_providers:
+        title: [content_method, { method: getTitle }]

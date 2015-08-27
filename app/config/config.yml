@@ -104,6 +104,7 @@ cmf_routing:
                 use_sonata_admin: false
         controllers_by_class:
             CK\BasicCmsBundle\Document\Page: CK\BasicCmsBundle\Controller\DefaultController::pageAction
+            CK\BasicCmsBundle\Document\Article: CK\BasicCmsBundle\Controller\ArticleController::showAction
 
 cmf_routing_auto:
     persistence:
