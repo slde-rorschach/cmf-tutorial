@@ -3,7 +3,6 @@
 namespace CK\BasicCmsBundle\DataFixtures\PHPCR;
 
 use CK\BasicCmsBundle\Document\Article;
-use CK\BasicCmsBundle\Document\Page;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ODM\PHPCR\DocumentManager;

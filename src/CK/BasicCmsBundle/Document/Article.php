@@ -25,6 +25,27 @@ class Article implements RouteReferrersReadInterface, NodeInterface
     protected $date;
 
     /**
+     * @PHPCR\ReferenceMany(strategy="weak", targetDocument="Event")
+     */
+    protected $events;
+
+    /**
+     * @return mixed
+     */
+    public function getEvents()
+    {
+        return $this->events;
+    }
+
+    /**
+     * @param mixed $events
+     */
+    public function setEvents($events)
+    {
+        $this->events = $events;
+    }
+
+    /**
      * @PHPCR\PrePersist()
      */
     public function updateDate()

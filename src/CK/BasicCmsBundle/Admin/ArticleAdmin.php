@@ -2,6 +2,7 @@
 
 namespace CK\BasicCmsBundle\Admin;
 
+use CK\BasicCmsBundle\Document\Event;
 use Knp\Menu\ItemInterface as MenuItemInterface;
 use Sonata\AdminBundle\Admin\AdminInterface;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -28,6 +29,12 @@ class ArticleAdmin extends Admin
             ->add('title', 'text')
             ->add('content', 'textarea')
             ->add('date', 'date')
+            ->add('events', 'phpcr_document',
+                array(
+                    'property' => 'title',
+                    'class'    => Event::class,
+                    'multiple' => true,
+                ))
             ->end();
     }
 

@@ -2,3 +2,8 @@
 
 <h1>{{ article.title }}</h1>
 <p>{{ article.content|raw }}</p>
+<ul>
+    {% for event in article.events %}
+        <li>{{ event.title }}: {{ event.date|date() }}</li>
+    {% endfor %}
+</ul>
