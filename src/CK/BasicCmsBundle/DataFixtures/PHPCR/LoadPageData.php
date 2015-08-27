@@ -20,12 +20,25 @@ class LoadPageData implements FixtureInterface
 
         $parent = $dm->find(null, '/cms/pages');
 
+        $rootPage = new Page();
+        $rootPage->setTitle('main');
+        $rootPage->setParentDocument($parent);
+        $dm->persist($rootPage);
+
+
         $page = new Page();
         $page->setTitle('Home');
-        $page->setParentDocument($parent);
+        $page->setParentDocument($rootPage);
         $page->setContent("Welcome to the homepage of this really basic CMS.");
-
         $dm->persist($page);
+
+
+        $aboutPage = new Page();
+        $aboutPage->setTitle('About');
+        $aboutPage->setParentDocument($rootPage);
+        $aboutPage->setContent("Some lorem about ipsum.");
+        $dm->persist($aboutPage);
+
         $dm->flush();
     }
 }
