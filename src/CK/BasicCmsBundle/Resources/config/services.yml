@@ -8,10 +8,10 @@ services:
             - { name: doctrine_phpcr.initializer }
 
     ck.basic_cms.admin.page:
-        class: Ck\BasicCmsBundle\Admin\PageAdmin
+        class: CK\BasicCmsBundle\Admin\PageAdmin
         arguments:
             - ''
-            - Ck\BasicCmsBundle\Document\Page
+            - CK\BasicCmsBundle\Document\Page
             - 'SonataAdminBundle:CRUD'
         tags:
             - { name: sonata.admin, manager_type: doctrine_phpcr, group: 'Basic CMS', label: Page }
@@ -19,10 +19,10 @@ services:
             - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']]
 
     ck.basic_cms.admin.post:
-        class: Ck\BasicCmsBundle\Admin\PostAdmin
+        class: CK\BasicCmsBundle\Admin\PostAdmin
         arguments:
             - ''
-            - Ck\BasicCmsBundle\Document\Post
+            - CK\BasicCmsBundle\Document\Post
             - 'SonataAdminBundle:CRUD'
         tags:
             - { name: sonata.admin, manager_type: doctrine_phpcr, group: 'Basic CMS', label: 'Blog Posts' }
