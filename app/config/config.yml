@@ -138,6 +138,9 @@ sonata_doctrine_phpcr_admin:
                 - CK\BasicCmsBundle\Document\Post
         CK\BasicCmsBundle\Document\Post:
             valid_children: []
+        CK\BasicCmsBundle\Document\Site:
+            valid_children:
+                - all
 
 knp_menu:
     twig: true

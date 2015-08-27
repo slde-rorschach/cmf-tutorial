@@ -1,11 +1,16 @@
 services:
-    ck_basiccms.basic_cms.phpcr.initializer:
-        class: Doctrine\Bundle\PHPCRBundle\Initializer\GenericInitializer
-        arguments:
-            - My custom initializer
-            - ["/cms/pages", "/cms/posts", "/cms/routes"]
+#    ck_basiccms.basic_cms.phpcr.initializer:
+#        class: Doctrine\Bundle\PHPCRBundle\Initializer\GenericInitializer
+#        arguments:
+#            - My custom initializer
+#            - ["/cms/pages", "/cms/posts", "/cms/routes"]
+#        tags:
+#            - { name: doctrine_phpcr.initializer }
+
+    ck_basiccms.phpcr.initializer.site:
+        class: CK\BasicCmsBundle\Initializer\SiteInitializer
         tags:
-            - { name: doctrine_phpcr.initializer }
+            - { name: doctrine_phpcr.initializer, priority: 50 }
 
     ck.basic_cms.admin.page:
         class: CK\BasicCmsBundle\Admin\PageAdmin
